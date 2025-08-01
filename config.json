@@ -14,7 +14,7 @@
   },
   "ollama": {
     "base_url": "http://localhost:11434",
-    "model": "gemma:8b",
+    "model": "gemma:latest",
     "embedding_model": "nomic-embed-text",
     "timeout": 300,
     "keep_alive": "5m",

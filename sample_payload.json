@@ -1,0 +1,5 @@
+{
+    "model": "gemma",
+    "prompt": "What are Large Language Models and how are they used?",
+    "stream": false
+}
