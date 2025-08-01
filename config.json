@@ -1,0 +1,73 @@
+{
+  "app": {
+    "name": "Document AI Agent",
+    "version": "1.0.0",
+    "description": "Intelligent document processing with Ollama & LangChain",
+    "debug": true,
+    "log_level": "INFO"
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8000,
+    "workers": 1,
+    "reload": true
+  },
+  "ollama": {
+    "base_url": "http://localhost:11434",
+    "model": "gemma:8b",
+    "embedding_model": "nomic-embed-text",
+    "timeout": 300,
+    "keep_alive": "5m",
+    "temperature": 0.7,
+    "max_tokens": 1024,
+    "stream": false
+  },
+  "embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "provider": "huggingface",
+    "dimension": 384,
+    "normalize": true,
+    "batch_size": 32
+  },
+  "document_processing": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "top_k_retrieval": 5,
+    "confidence_threshold": 0.7,
+    "max_file_size": 52428800,
+    "allowed_extensions": [".pdf", ".docx", ".txt", ".md", ".csv"],
+    "max_files_per_request": 10
+  },
+  "vector_store": {
+    "type": "faiss",
+    "path": "data/vector_store",
+    "index_name": "documents",
+    "save_every": 10
+  },
+  "directories": {
+    "data": "data",
+    "uploads": "uploads",
+    "templates": "templates",
+    "cache": "cache",
+    "logs": "logs"
+  },
+  "features": {
+    "conversation_memory": true,
+    "document_analysis": true,
+    "similarity_search": true,
+    "batch_processing": true,
+    "caching": false
+  },
+  "security": {
+    "enable_auth": false,
+    "secret_key": "change-this-in-production",
+    "cors_origins": ["http://localhost:3000", "http://localhost:8080"],
+    "cors_allow_credentials": true
+  },
+  "performance": {
+    "max_concurrent_requests": 10,
+    "request_timeout": 300,
+    "cache_ttl": 3600,
+    "enable_profiling": false
+  }
+}
